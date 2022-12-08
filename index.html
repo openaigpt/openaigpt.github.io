@@ -19,7 +19,7 @@
     <h1>Tap on the square to play voice in Taishanese</h1>
     <script>
         function playSound(buttonLabel) {
-            var audio = new Audio(`https://filesamples.com/samples/audio/mp3/sample4.mp3`);
+            var audio = new Audio(`./AreYouHungry`);
             audio.play();
         }
     </script>
@@ -28,7 +28,7 @@
             {
                 section: 'Food',
                 phrases: [
-                    'Are you hungry?',
+                    { text: 'Are you hungry?', file: '/AreYouHungry' },
                     'Time to eat',
                     'Drink water',
                     'Take medicine'
