@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Button Sound Example</title>
+    <style>
+        /* Style for the buttons */
+        .button {
+            width: 150px;
+            height: 150px;
+            font-size: 24px;
+            background: transparent;
+            border: 5px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tap on the square to play voice in Taishanese</h1>
+    <script>
+        function playSound(buttonLabel) {
+            var audio = new Audio(`https://filesamples.com/samples/audio/mp3/sample4.mp3`);
+            audio.play();
+        }
+    </script>
+    <script>
+        var sections = [
+            {
+                section: 'Food',
+                phrases: [
+                    'Are you hungry?',
+                    'Time to eat',
+                    'Drink water',
+                    'Take medicine'
+                ],
+            },
+            {
+                section: 'Movement',
+                phrases: [
+                    'Don\'t leave the bed',
+                    'Do you need to go to the bathroom?',
+                    'Get up',
+                    'Sit in the chair',
+                    'Return to bed',
+                ]
+            },
+            {
+                section: 'Comfort',
+                phrases: [
+                    'Does it hurt?',
+                    'Are you cold?',
+                    'Are you hot?',
+                    ''
+                ]
+            },
+            {
+                section: 'Assurance',
+                phrases: [
+                    'I will be back',
+                    'Wait a minute',
+                    'Do you want to call family?',
+
+                ]
+            }
+        ];
+
+        var container = document.createElement('div');
+
+        for (let i = 0; i < sections.length; i++) {
+            var section = document.createElement('div');
+            var header = document.createElement("h2");
+            header.innerHTML = sections[i].section;
+
+            section.append(header);
+
+            var phraseSection = document.createElement('div');
+            phraseSection.style.display = 'flex';
+
+            for (let j = 0; j < sections[i].phrases.length; j++) {
+                var button = document.createElement("button");
+                button.innerHTML = `<span>${sections[i].phrases[j]}</span>`;
+                button.classList.add("button");
+
+                button.onclick = function () {
+                    playSound(j);
+                };
+
+                phraseSection.append(button);
+            }
+
+            section.append(phraseSection);
+            container.append(section);
+        }
+
+        document.body.appendChild(container);
+    </script>
+</body>
+
+</html>
