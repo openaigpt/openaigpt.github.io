@@ -18,8 +18,8 @@
 <body>
     <h1>Tap on the square to play voice in Taishanese</h1>
     <script>
-        function playSound(buttonLabel) {
-            var audio = new Audio(`./AreYouHungry`);
+        function playSound(path) {
+            var audio = new Audio(`./audio/${path}.m4a`);
             audio.play();
         }
     </script>
@@ -28,38 +28,39 @@
             {
                 section: 'Food',
                 phrases: [
-                    { text: 'Are you hungry?', file: '/AreYouHungry' },
-                    'Time to eat',
-                    'Drink water',
-                    'Take medicine'
+                    { text: 'Are you hungry?', file: 'hungry' },
+                    { text: 'Drink water', file: 'drink-water' },
+                    { text: 'Need to take medicine', file: 'medicine' },
                 ],
             },
             {
                 section: 'Movement',
                 phrases: [
-                    'Don\'t leave the bed',
-                    'Do you need to go to the bathroom?',
-                    'Get up',
-                    'Sit in the chair',
-                    'Return to bed',
+                    { text: 'Don\'t leave the bed', file: 'dont-leave-bed' },
+                    { text: 'Do you need to go to the bathroom?', file: 'bathroom' },
+                    { text: 'Get up', file: 'get-up' },
+                    { text: 'Do you want to sit in the chair?', file: 'chair' },
+                    { text: 'Return to bed', file: 'return-to-bed' },
                 ]
             },
             {
                 section: 'Comfort',
                 phrases: [
-                    'Does it hurt?',
-                    'Are you cold?',
-                    'Are you hot?',
-                    ''
+                    {
+                        text: 'Does it hurt?', file: 'hurt'
+                    },
+                    { text: 'Are you cold?', file: 'cold' },
+                    { text: 'Are you hot?', file: 'hot' },
                 ]
             },
             {
                 section: 'Assurance',
                 phrases: [
-                    'I will be back',
-                    'Wait a minute',
-                    'Do you want to call family?',
-
+                    {
+                        text: 'I will be back', file: 'be-back'
+                    },
+                    { text: 'Wait a moment', file: 'wait' },
+                    { text: 'Do you want to call family?', file: 'AreYouHungry' },
                 ]
             }
         ];
@@ -78,11 +79,11 @@
 
             for (let j = 0; j < sections[i].phrases.length; j++) {
                 var button = document.createElement("button");
-                button.innerHTML = `<span>${sections[i].phrases[j]}</span>`;
+                button.innerHTML = `<span>${sections[i].phrases[j].text}</span>`;
                 button.classList.add("button");
 
                 button.onclick = function () {
-                    playSound(j);
+                    playSound(sections[i].phrases[j].file);
                 };
 
                 phraseSection.append(button);
