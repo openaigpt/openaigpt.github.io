@@ -1,3 +1,8 @@
+function playSound(path) {
+    var audio = new Audio(`./audio/${path}.m4a`);
+    audio.play();
+}
+
 var sections = [
     {
         section: 'Food',
