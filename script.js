@@ -41,7 +41,6 @@ var sections = [
 
 var container = document.createElement('div');
 
-alert('test')
 for (let i = 0; i < sections.length; i++) {
     var section = document.createElement('div');
     var header = document.createElement("h2");
