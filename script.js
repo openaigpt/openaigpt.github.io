@@ -34,13 +34,14 @@ var sections = [
                 text: 'I will be back', file: 'be-back'
             },
             { text: 'Wait a moment', file: 'wait' },
-            { text: 'Do you want to call family?', file: 'AreYouHungry' },
+            { text: 'Do you want to call family?', file: 'family' },
         ]
     }
 ];
 
 var container = document.createElement('div');
 
+alert('test')
 for (let i = 0; i < sections.length; i++) {
     var section = document.createElement('div');
     var header = document.createElement("h2");
