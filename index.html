@@ -13,15 +13,80 @@
             border: 5px solid black;
             border-radius: 5px;
         }
+
+        .sect {
+            display: flex;
+        }
     </style>
 </head>
 
 <body>
     <h1>Tap on the square to play voice in Taishanese</h1>
+    <div>
+        <h2>Food</h2>
+        <div class="sect">
+            <button class="button" onclick="new Audio(`./audio/${'hungry'}.m4a`).play()">
+                Are you hungry?
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'drink-water'}.m4a`).play()">
+                Drink water
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'medicine'}.m4a`).play()">
+                Need to take medicine
+            </button>
+        </div>
+    </div>
 
-    <button class="button" onclick="new Audio(`./audio/${'hungry'}.m4a`).play()">
-        hungry
-    </button>
+    <div>
+        <h2>Movement</h2>
+        <div class="sect">
+            <button class="button" onclick="new Audio(`./audio/${'dont-leave-bed'}.m4a`).play()">
+                Don't leave the bed
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'bathroom'}.m4a`).play()">
+                Do you need to go to the bathroom?
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'get-up'}.m4a`).play()">
+                Get up
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'chair'}.m4a`).play()">
+                Do you want to sit in the chair?
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'return-to-bed'}.m4a`).play()">
+                Return to bed
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <h2>Comfort</h2>
+        <div class="sect">
+            <button class="button" onclick="new Audio(`./audio/${'hurt'}.m4a`).play()">
+                Does it hurt?
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'cold'}.m4a`).play()">
+                Are you cold?
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'hot'}.m4a`).play()">
+                Are you Hot?
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <h2>Assurance</h2>
+        <div class="sect">
+            <button class="button" onclick="new Audio(`./audio/${'be-back'}.m4a`).play()">
+                I will be back
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'wait'}.m4a`).play()">
+                Wait a moment
+            </button>
+            <button class="button" onclick="new Audio(`./audio/${'family'}.m4a`).play()">
+                Do you want to call family?
+            </button>
+        </div>
+    </div>
 </body>
 
 <script type="text/javascript">
@@ -71,35 +136,35 @@
         }
     ];
 
-    var container = document.createElement('div');
+    // var container = document.createElement('div');
 
-    for (let i = 0; i < sections.length; i++) {
-        var section = document.createElement('div');
-        var header = document.createElement("h2");
-        header.innerHTML = sections[i].section;
+    // for (let i = 0; i < sections.length; i++) {
+    //     var section = document.createElement('div');
+    //     var header = document.createElement("h2");
+    //     header.innerHTML = sections[i].section;
 
-        section.append(header);
+    //     section.append(header);
 
-        var phraseSection = document.createElement('div');
-        phraseSection.style.display = 'flex';
+    //     var phraseSection = document.createElement('div');
+    //     phraseSection.style.display = 'flex';
 
-        for (let j = 0; j < sections[i].phrases.length; j++) {
-            var button = document.createElement("button");
-            button.innerHTML = `<span>${sections[i].phrases[j].text}</span>`;
-            button.classList.add("button");
+    //     for (let j = 0; j < sections[i].phrases.length; j++) {
+    //         var button = document.createElement("button");
+    //         button.innerHTML = `<span>${sections[i].phrases[j].text}</span>`;
+    //         button.classList.add("button");
 
-            button.onclick = function () {
-                playSound(sections[i].phrases[j].file);
-            };
+    //         button.onclick = function () {
+    //             playSound(sections[i].phrases[j].file);
+    //         };
 
-            phraseSection.append(button);
-        }
+    //         phraseSection.append(button);
+    //     }
 
-        section.append(phraseSection);
-        container.append(section);
-    }
+    //     section.append(phraseSection);
+    //     container.append(section);
+    // }
 
-    document.body.appendChild(container);
+    // document.body.appendChild(container);
 </script>
 
 </html>
